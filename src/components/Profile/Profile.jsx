@@ -2,17 +2,13 @@ import style from '../Profile/profile.module.css';
 import PropTypes from 'prop-types';
 
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export const Profile = ({ username, tag, location, avatar, stats }) => (
   <div className={style.profile}>
     <div className={style.description}>
-      <img
-        src={avatar}
-        alt="User avatar"
-        className={style.avatar}
-        />
+      <img src={avatar} alt="User avatar" className={style.avatar} />
       <p className={style.name}>{username}</p>
       <p className={style.tag}>@{tag}</p>
       <p className={style.location}>{location}</p>
@@ -20,7 +16,9 @@ export const Profile = ({ username, tag, location, avatar, stats }) => (
     <ul className={style.stats}>
       <li className={style.item}>
         <span className={style.label}>Followers</span>
-        <span className={style.quantity}>{numberWithCommas(stats.followers)}</span>
+        <span className={style.quantity}>
+          {numberWithCommas(stats.followers)}
+        </span>
       </li>
       <li className={style.item}>
         <span className={style.label}>Views</span>
@@ -34,7 +32,6 @@ export const Profile = ({ username, tag, location, avatar, stats }) => (
   </div>
 );
 
-
 Profile.propTypes = {
   username: PropTypes.string.isRequired,
   tag: PropTypes.string,
@@ -43,4 +40,4 @@ Profile.propTypes = {
   followers: PropTypes.number,
   views: PropTypes.number,
   likes: PropTypes.number,
-}
+};
