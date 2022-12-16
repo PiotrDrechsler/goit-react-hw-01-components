@@ -1,4 +1,4 @@
-import style from '../Profile/profile.module.css';
+import style from '../Profile/Profile.module.css';
 import PropTypes from 'prop-types';
 
 function numberWithCommas(x) {
