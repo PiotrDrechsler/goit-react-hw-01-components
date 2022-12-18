@@ -1,9 +1,8 @@
 import style from '../Profile/profile.module.css';
 import PropTypes from 'prop-types';
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
+const numberWithCommas = num =>
+  num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export const Profile = ({ username, tag, location, avatar, stats }) => (
   <div className={style.profile}>
@@ -34,10 +33,10 @@ export const Profile = ({ username, tag, location, avatar, stats }) => (
 
 Profile.propTypes = {
   username: PropTypes.string.isRequired,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  avatar: PropTypes.string,
-  followers: PropTypes.number,
-  views: PropTypes.number,
-  likes: PropTypes.number,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  followers: PropTypes.number.isRequired,
+  views: PropTypes.number.isRequired,
+  likes: PropTypes.number.isRequired,
 };
